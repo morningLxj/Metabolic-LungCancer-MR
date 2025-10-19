@@ -1,0 +1,15 @@
+首先运行环境设置：
+
+r
+source("setup_environment.R")
+然后执行完整分析：
+
+r
+source("main_analysis.R")
+或者分步运行：
+
+r
+# 依次运行各个步骤
+source("01_data_preparation/01_load_gwas_data.R")
+source("02_mr_analysis/01_primary_mr.R")
+# ... 其他步骤

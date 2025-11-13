@@ -1,0 +1,95 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-r:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.2.0'
+        
+    - name: Install dependencies
+      run: |
+        R -e "install.packages(c('remotes'))"
+        R -e "remotes::install_deps(dependencies = TRUE)"
+      shell: bash
+      
+    - name: Install required R packages
+      run: |
+        R -e "source('R_packages.R')"
+      shell: bash
+      
+    - name: Run unit tests
+      run: |
+        R -e "devtools::test()"
+      shell: bash
+      
+    - name: Run integration tests
+      run: |
+        R -e "source('tests/integration_tests.R')"
+      shell: bash
+
+  test-python:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        
+    - name: Run Python tests
+      run: |
+        python -m pytest tests/ -v
+      shell: bash
+
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.2.0'
+        
+    - name: Install linting tools
+      run: |
+        R -e "install.packages(c('lintr'))"
+        
+    - name: Lint R code
+      run: |
+        R -e "lintr::lint_dir('scripts/')"
+      shell: bash
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install linting tools
+      run: |
+        pip install flake8 black
+        
+    - name: Lint Python code
+      run: |
+        python -m flake8 scripts/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        python -m black --check scripts/
+      shell: bash

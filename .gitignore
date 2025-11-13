@@ -1,0 +1,144 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+
+# R / RStudio
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+
+# Specific to R
+.Renviron
+ renv.lock
+.renv/
+
+# Data files (large files)
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.gz
+*.zip
+
+# Raw GWAS data (usually very large)
+data/raw/*.txt
+data/raw/*.tsv
+data/raw/*.vcf
+data/raw/*.bcf
+data/raw/*.bed
+data/raw/*.bim
+data/raw/*.fam
+data/raw/*.gwas
+data/raw/*.sumstats
+data/raw/*.ld
+data/raw/*.snp
+data/raw/*.exposure
+data/raw/*.outcome
+
+# Intermediate data files
+data/processed/intermediate_*
+data/processed/temp_*
+*.tmp
+*.temp
+
+# Results (can be reproduced)
+results/**/*
+!results/README.md
+
+# Generated figures
+*.png
+*.pdf
+*.jpg
+*.jpeg
+*.svg
+*.tiff
+
+# Logs
+*.log
+*.out
+*.err
+logs/
+log/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Conda environments
+conda-env/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# PyPI
+*.egg-info/
+dist/
+build/
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Documentation builds
+docs/_build/
+docs/build/
+
+# Backup files
+*~
+.#*
+#*#
+
+# Specific analysis temporary files
+*_temp.*
+*_intermediate.*
+*_debug.*
+
+# Large dataset files (examples)
+*.big
+*.large
+data/external/*
+
+# Personal configuration files
+config/local_*
+config/personal_*
+
+# Project-specific
+.Rbuildignore
+.gitattributes

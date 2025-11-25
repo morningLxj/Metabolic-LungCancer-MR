@@ -1,0 +1,12 @@
+Gene,Cohort,Probe,Region,Delta_Beta,P_value,N_Tumor,N_Normal,Direction,FDR,absDelta,Spearman,Corr_P,Pass_Threshold
+CDC2L2,LUSC,cg184628,5'UTR,,,80,0,,,,,,
+CDK11,LUSC,cg070198,5'UTR,,,80,0,,,,,,
+CDK11A,LUSC,cg085072,TSS1500,,,80,0,,,,,,
+MAGP,LUSC,cg117423,1stExon,,,80,0,,,,,,
+MAGP1,LUSC,cg078633,TSS200,,,80,0,,,,,,
+MFAP2,LUSC,cg659011,TSS1500,,,80,0,,,,,,
+PKC-ZETA,LUSC,cg855085,TSS200,,,80,0,,,,,,
+PKC2,LUSC,cg785506,1stExon,,,80,0,,,,,,
+PRKCZ,LUSC,cg180582,5'UTR,,,80,0,,,,,,
+WRAP53,LUSC,cg036684,5'UTR,,,80,0,,,,,,
+WRAP73,LUSC,cg421443,1stExon,,,80,0,,,,,,

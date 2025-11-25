@@ -1,0 +1,28 @@
+paths:
+  luad_methylation: data/raw/TCGA-LUAD.methylation450.tsv
+  lusc_methylation: data/raw/TCGA-LUSC.methylation450.tsv
+  luad_rna: data/raw/TCGA-LUAD.star_tpm.tsv
+  lusc_rna: data/raw/TCGA-LUSC.star_tpm.tsv
+  results_dir: results
+
+targets:
+  genes: [MFAP2, CDK11A, PRKCZ, WRAP73]
+  synonyms:
+    MFAP2: [MFAP2, MAGP, MAGP1]
+    CDK11A: [CDK11A, CDC2L2, CDK11]
+    PRKCZ: [PRKCZ, PKC-ZETA, PKC2]
+    WRAP73: [WRAP73, WRAP53]
+  ensembl_map:
+    - { SYMBOL: MFAP2, ENSEMBL: ENSG00000117122 }
+    - { SYMBOL: CDK11A, ENSEMBL: ENSG00000008128 }
+    - { SYMBOL: WRAP73, ENSEMBL: ENSG00000116213 }
+    - { SYMBOL: PRKCZ, ENSEMBL: ENSG00000067606 }
+
+promoter_tags: ["TSS1500", "TSS200", "5'UTR", "1stExon"]
+
+thresholds:
+  p_value: 0.05
+  abs_delta_beta: 0.1
+
+plots:
+  dpi: 300

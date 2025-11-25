@@ -1,0 +1,7 @@
+data/raw/
+data/synthetic/
+results/
+renv/
+.Rproj.user/
+.DS_Store
+Thumbs.db

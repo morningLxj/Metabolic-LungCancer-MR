@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: Targeted Promoter Methylation Validation in TCGA LUAD/LUSC
+message: If you use this software, please cite it.
+authors:
+  - family-names: YourSurname
+    given-names: YourGivenName
+version: 1.0.0
+date-released: 2025-11-25
+doi: 10.XXXX/XXXXX

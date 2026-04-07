@@ -1,0 +1,4 @@
+"Cohort","N","LogRank_P","Cutoff_Method","Cutoff_Value"
+"TCGA_train",364,2.32130870081448e-10,"median_from_training",0.0354811583849748
+"GSE39279_RFS",122,0.0220706024628553,"maxstat_surv_cutpoint",-4052.05444144268
+"GSE30219_OS",274,0.0023336219703336,"maxstat_surv_cutpoint",9.11981

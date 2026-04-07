@@ -1,0 +1,4 @@
+Dataset,Endpoint,N,"HR (per SD, 95% CI)",P-value (HR per SD),KM P-value,C-index,AUC (3-year),Calibration slope (3Y),Calibration R² (3Y),Cutoff method,Cutoff value
+TCGA (training),Overall survival (OS),364,2.07 (1.71–2.51),7.08 × 10⁻¹⁴,2.32 × 10⁻¹⁰,0.664,0.685,1.227,0.843,Median (training cohort),0.035
+GSE39279 (external),Recurrence-free survival (RFS),122,NA,NA,0.022,NA,NA,NA,NA,Maxstat-derived optimal cutoff,-4052.054
+GSE30219 (external),Overall survival (OS),274,NA,NA,0.002,NA,NA,NA,NA,Maxstat-derived optimal cutoff,9.120

@@ -1,0 +1,13 @@
+CpG_ID,Gene_Annotation,Coefficient_beta,HR,P_value,Direction
+cg06238570,BRWD1,0.210,1.23,0.015,Risk-increasing
+cg07318658,MTMR4,0.140,1.15,0.077,Risk-increasing
+cg13144823,CXXC5,0.104,1.11,0.319,Risk-increasing
+cg14526939,TOR1AIP1,-0.222,0.80,0.024,Protective
+cg07151966,intergenic,-0.294,0.75,4.58 × 10⁻⁴,Protective
+cg12672785,EED,0.041,1.04,0.656,Risk-increasing
+cg05801080,LNP1; TOMM70A,0.075,1.08,0.428,Risk-increasing
+cg07154958,intergenic,-0.205,0.81,0.144,Protective
+cg16098170,JSRP1,0.253,1.29,0.013,Risk-increasing
+cg09010499,BDKRB2,0.260,1.30,0.010,Risk-increasing
+cg05984948,intergenic,-0.230,0.79,0.017,Protective
+cg00646216,intergenic,-0.152,0.86,0.041,Protective

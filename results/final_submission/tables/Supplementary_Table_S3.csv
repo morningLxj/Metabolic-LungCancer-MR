@@ -1,0 +1,11 @@
+Exposure,Outcome,Combination,OR (95% CI),P-value
+WBC,Overall lung cancer,Inflammatory: CRP + WBC,1.783 (1.758–1.808),0.008
+CRP,Overall lung cancer,Inflammatory: CRP + WBC,0.753 (0.747–0.759),0.009
+HbA1c,Lung adenocarcinoma,Metabolic: Glucose,0.346 (0.186–0.644),0.044
+BMI,Squamous cell lung cancer,Metabolic: BMI + HDL,0.454 (0.249–0.829),0.124
+HDL cholesterol,Overall lung cancer,Metabolic: BMI + HDL,0.326 (0.154–0.690),0.099
+Fasting glucose,Lung adenocarcinoma,Metabolic: Glucose,2.500 (1.249–5.005),0.081
+CRP,Lung adenocarcinoma,Inflammatory: CRP + WBC,0.818 (0.737–0.908),0.166
+CRP,Squamous cell lung cancer,Mixed: HDL + CRP,1.226 (0.998–1.507),0.192
+WBC,Lung adenocarcinoma,Inflammatory: CRP + WBC,1.283 (1.069–1.539),0.228
+BMI,Overall lung cancer,Metabolic: BMI + HDL,0.503 (0.224–1.128),0.237

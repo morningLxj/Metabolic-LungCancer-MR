@@ -1,0 +1,7 @@
+Pathway,Effect,PValue,Group,Group_Display
+Inflammatory signaling (CRP),4.402818810918828,0.0068134731334026,Inflammation,Inflammation
+Microtubule process,2.3542536773993463,4.0671872759969e-05,ECM / cytoskeleton,Microtubule
+Microtubule organization,2.5609100523446355,0.000142001726062,ECM / cytoskeleton,Microtubule
+ECM/cytoskeleton remodeling,2.5609100523446355,0.000142001726062,ECM / cytoskeleton,ECM / cytoskeleton
+Platelet morphogenesis,5.399547064405746,0.0010198151479697,Platelet-related,Platelet-related
+Platelet formation,5.510578376794491,0.0008735516616876,Platelet-related,Platelet-related

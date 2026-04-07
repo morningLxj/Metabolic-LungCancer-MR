@@ -1,0 +1,10 @@
+Metric,Value,Method,Cohort
+DCA threshold range (3-year),0.01–0.30,Decision curve analysis,TCGA M12
+AUC (1-year),0.675,Time-dependent ROC,TCGA M12
+AUC (3-year),0.685,Time-dependent ROC,TCGA M12
+AUC (5-year),0.681,Time-dependent ROC,TCGA M12
+Calibration slope (3-year),1.227,Calibration,TCGA M12
+Calibration R² (3-year),0.843,Calibration,TCGA M12
+Calibration slope (5-year),1.276,Calibration,TCGA M12
+Calibration R² (5-year),0.925,Calibration,TCGA M12
+C-index,0.664,Concordance,TCGA M12

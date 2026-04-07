@@ -86,7 +86,6 @@ log/
 .Trashes
 ehthumbs.db
 Thumbs.db
-
 # Temporary files
 *.bak
 *.backup
@@ -142,3 +141,10 @@ config/personal_*
 # Project-specific
 .Rbuildignore
 .gitattributes
+
+!docs/manuscript/
+!docs/manuscript/**
+!results/final_submission/
+!results/final_submission/**
+!scripts/submission/
+!scripts/submission/**

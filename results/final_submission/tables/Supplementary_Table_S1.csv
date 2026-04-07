@@ -1,0 +1,34 @@
+Category,Trait,Sample Size,SNPs,Population,First Author,Consortium
+Inflammatory,Alcoholic drinks per week,335394,35,European,Liu M,GWAS and Sequencing Consortium of Alcohol and Nicotine use
+Inflammatory,Apolipoprotein A1 levels,398508,284,European,Barton AR,NA
+Inflammatory,Apolipoprotein B levels,435744,189,European,Barton AR,NA
+Inflammatory,Average diameter for HDL particles,115082,96,European,Richardson TG,NA
+Inflammatory,C-reactive protein levels,575531,264,European,Said S,NA
+Inflammatory,Concentration of large HDL particles,115082,101,European,Richardson TG,NA
+Inflammatory,Concentration of small LDL particles,115082,57,European,Richardson TG,NA
+Inflammatory,Concentration of very large HDL particles,115082,89,European,Richardson TG,NA
+Inflammatory,Fasting glucose,200622,69,European,Chen J,NA
+Inflammatory,Fasting insulin,151013,38,European,Chen J,NA
+Inflammatory,Gamma glutamyl transferase levels,437651,349,European,Barton AR,NA
+Inflammatory,Glycated hemoglobin HbA1c levels,389889,403,European,Mbatchou J,NA
+Inflammatory,HDL cholesterol,403943,356,European,Richardson T,UK Biobank
+Inflammatory,Hypertension,462826,209,European,Tang H,UK Biobank
+Inflammatory,Insulin-like growth factor 1 levels,435516,395,European,Barton AR,NA
+Inflammatory,Interleukin-6 levels,21758,2,European,Folkersen L,NA
+Inflammatory,Interleukin-6 receptor subunit alpha levels,21758,5,European,Folkersen L,NA
+Inflammatory,LDL cholesterol,440546,179,European,Richardson T,UK Biobank
+Inflammatory,Lung adenocarcinoma,65864,14,European,McKay JD,TRICL
+Inflammatory,Lung cancer,85716,15,European,McKay JD,NA
+Inflammatory,Ratio of apolipoprotein B to apolipoprotein A1 levels,115082,72,European,Richardson TG,NA
+Inflammatory,Remnant cholesterol,115082,53,European,Richardson TG,NA
+Inflammatory,Serum 25-Hydroxyvitamin D levels,496946,115,European,Revez JA,NA
+Inflammatory,Squamous cell lung cancer,62467,9,European,McKay JD,TRICL
+Inflammatory,Total concentration of branched-chain amino acids,115051,17,European,Richardson TG,NA
+Inflammatory,Tumor necrosis factor receptor 1 levels,21758,4,European,Folkersen L,NA
+Inflammatory,Body mass index,681275,501,European,Yengo L,GIANT
+Inflammatory,Circulating leptin levels,49909,1,European,Yaghootkar H,NA
+Inflammatory,Diastolic blood pressure,757601,460,European,Evangelou E,International Consortium of Blood Pressure
+Inflammatory,Smoking initiation,607291,93,European,Liu M,GSCAN
+Inflammatory,Systolic blood pressure,757601,461,European,Evangelou E,International Consortium of Blood Pressure
+Inflammatory,Triglycerides,441016,313,European,Richardson T,UK Biobank
+Inflammatory,White blood cell count,563946,502,European,Vuckovic D,Blood Cell Consortium

@@ -1,0 +1,6 @@
+Step,N_Features,Details,Source
+Raw features in matrix,350,After missing-value filter (<=20%),LASSO_enhanced_summary
+After univariate Cox prefilter,14,P-threshold=0.05,LASSO_enhanced_summary
+LASSO alpha=1 selected (lambda.min),13,lambda.min=0.010235,LASSO_enhanced_summary
+Elastic Net alpha=0.5 selected (lambda.min),14,lambda.min=0.020470,LASSO_enhanced_summary
+Final selected model,12,M12_Top12 by composite Selection_Score,Model_Comparison_14CpG

@@ -99,6 +99,8 @@ from upstream genetic liability to downstream prognostic application
 \[9,11,16,17,29\]. A schematic overview of the study design is provided
 in Figure 1.
 
+***\[Insert Figure 1 here\]***
+
 **2.2 Genetic liability analysis using Mendelian randomization**
 
 Two-sample MR analyses were conducted to estimate the putative causal
@@ -127,6 +129,9 @@ using MR-Egger regression, the weighted median estimator, and MR-PRESSO
 
 *β_Y,i = α + β_MR · β_X,i + ε_i*
 
+Detailed MR sensitivity analyses and supporting results are provided in
+Tables S1--S2.
+
 **2.3 Multivariable and mediation MR**
 
 Multivariable MR (MVMR) was performed to estimate the independent
@@ -136,7 +141,8 @@ two-step MR analyses were undertaken by separately modeling
 exposure-mediator and mediator-outcome associations, with particular
 emphasis on the potential mediating role of inflammatory markers in
 metabolic risk transmission \[16,50\]. Indirect effects were interpreted
-according to the product-of-coefficients framework.
+according to the product-of-coefficients framework. Extended MVMR and
+mediation analyses are shown in Tables S2--S3.
 
 **2.4 Epigenetic triangulation framework**
 
@@ -150,7 +156,8 @@ and methylation-associated signals were likely attributable to a shared
 causal variant; posterior probability for hypothesis 4 (PP.H4) \> 0.30
 was considered suggestive evidence of colocalization. CpG sites were
 retained only when the inferred directions of effect were concordant
-across the MR and mQTL layers.
+across the MR and mQTL layers. Full colocalization results are provided
+in Table S4, with regional plots shown in Figure S3.
 
 **2.5 Multi-omics integration and functional annotation**
 
@@ -165,7 +172,8 @@ identify pathways associated with the candidate genes, with particular
 emphasis on coagulation, platelet activation, extracellular matrix
 organization, and immune-related processes implicated in tumor
 microenvironment remodeling, using established pathway resources and
-analytic frameworks \[35-38,42\].
+analytic frameworks \[35-38,42\]. CpG-to-gene mapping details are
+summarized in Table S5.
 
 **2.6 Prognostic model construction (M12 Signature)**
 
@@ -198,6 +206,9 @@ Z\[cg05801080\]) - (0.205 × Z\[cg07154958\]) + (0.253 ×
 Z\[cg16098170\]) + (0.260 × Z\[cg09010499\]) - (0.230 ×
 Z\[cg05984948\]) - (0.152 × Z\[cg00646216\])*
 
+Full model coefficients and feature-selection procedures are provided in
+Tables S6--S7.
+
 **2.7 Model evaluation and validation**
 
 Model performance was comprehensively evaluated using Kaplan-Meier
@@ -213,7 +224,8 @@ rank statistics) procedure. Given the heterogeneity in endpoint
 definition across validation cohorts, namely recurrence-free survival in
 GSE39279 and overall survival in GSE30219, external validation primarily
 focused on discriminative performance, whereas calibration and DCA were
-principally assessed in the TCGA training cohort.
+principally assessed in the TCGA training cohort. Additional diagnostic
+analyses are shown in Figure S5 and Tables S8--S9.
 
 **2.8 Statistical analysis**
 
@@ -235,7 +247,7 @@ consistent associations across outcomes, with larger effect sizes
 observed in lung squamous cell carcinoma (LUSC) compared with lung
 adenocarcinoma (LUAD). Body mass index (BMI) showed significant
 associations with LUSC but not LUAD, suggesting subtype-specific
-susceptibility patterns (Figure 2).
+susceptibility patterns (Figure 2; Table 2).
 
 Detailed effect estimates, including odds ratios and confidence
 intervals, are provided in Table 2.
@@ -243,7 +255,10 @@ intervals, are provided in Table 2.
 Multivariable MR analyses attenuated these associations, consistent with
 shared genetic architecture among cardiometabolic traits. Collectively,
 these findings support a networked metabolic--inflammatory liability
-framework rather than a single dominant causal factor.
+framework rather than a single dominant causal factor (Figure S2; Tables
+S1--S2).
+
+***\[Insert Figure 2 and Table 2 here\]***
 
 **3.2 Inflammatory pathways may mediate metabolic risk in LUSC**
 
@@ -255,8 +270,8 @@ mediator--outcome effects.
 
 Although these associations did not survive multiple testing correction,
 the recurrent involvement of CRP across multiple pathways suggests a
-biologically plausible inflammatory axis underlying LUSC risk. Full
-mediation results are presented in Supplementary Tables S2--S3.
+biologically plausible inflammatory axis underlying LUSC risk (Figure
+2C; Tables S2--S3).
 
 **3.3 Epigenetic triangulation prioritizes MFAP2-associated CpG sites**
 
@@ -270,8 +285,11 @@ all layers, whereas adjacent probes did not, indicating probe-specific
 functional relevance. Colocalization analysis further supported a shared
 genetic signal at this locus.
 
-These findings prioritized MFAP2 as a key candidate linking upstream
-liabilities to epigenetic regulation (Figure 3; Table 3).
+These findings prioritized MFAP2 as an upstream candidate node linking
+inherited liabilities to epigenetic regulation and downstream tumor
+biology (Figure 3; Table 3; Figure S3; Table S4).
+
+***\[Insert Figure 3 and Table 3 here\]***
 
 **3.4 Multi-omics integration reveals a coagulation--ECM tumor program**
 
@@ -279,7 +297,9 @@ To further characterize the biological relevance of prioritized loci, we
 performed multi-omics integration across transcriptomic, proteomic, and
 immune-related datasets. These analyses converged on a coherent tumor
 program characterized by platelet activation, coagulation processes, and
-extracellular matrix remodeling (Figures 4--5).
+extracellular matrix remodeling, with Figure 6 further illustrating
+CpG--pathway associations and immune-related signatures (Figures 4 and
+6).
 
 Notably, transcriptomic and proteomic analyses showed partial
 discordance at the gene expression level but consistent activation at
@@ -288,8 +308,10 @@ Functional enrichment further supported a platelet--ECM axis and
 microtubule-related transport processes.
 
 Together, these results provide a mechanistic bridge linking systemic
-metabolic--inflammatory liabilities to tumor microenvironment
-remodeling.
+metabolic--inflammatory liabilities to tumor microenvironment remodeling
+(Table S5).
+
+***\[Insert Figures 4 and 6 here\]***
 
 **3.5 A 12-CpG methylation signature enables clinically relevant risk
 stratification**
@@ -297,13 +319,18 @@ stratification**
 We translated the prioritized epigenetic signals into a
 methylation-based prognostic model using penalized LASSO-Cox regression.
 The final model comprised 12 CpG sites (M12) and demonstrated stable
-prognostic performance in the TCGA-LUSC training cohort.
+prognostic performance in the TCGA-LUSC training cohort (Figure 5A--C;
+Table 4; Tables S6--S7).
+
+***\[Insert Figure 5A--C and Table 4 here\]***
 
 Using the median training-cohort cutoff, Kaplan--Meier analysis showed
-significantly worse overall survival in the high-risk group (Figure 6).
+significantly worse overall survival in the high-risk group (Figure 5D).
 Continuous risk modeling further supported the prognostic relevance of
 the M12 signature. Model coefficients and feature contributions are
 summarized in Table 4.
+
+***\[Insert Figure 5D here\]***
 
 **3.6 External validation confirms model portability across independent
 cohorts**
@@ -311,16 +338,22 @@ cohorts**
 We next evaluated model performance in two independent cohorts, GSE39279
 and GSE30219. Significant survival stratification was observed across
 external datasets using maxstat-derived optimal cutoffs, supporting the
-portability of the M12 signature across independent populations.
+portability of the M12 signature across independent populations (Figure
+7B--C).
 
 In the TCGA training cohort, the model achieved a C-index of 0.664 and a
 3-year AUC of 0.685, with good calibration performance (slope = 1.227;
-R² = 0.843). Overall validation results are presented in Figure 7 and
-Table 5.
+R² = 0.843). Detailed cohort-level performance metrics are summarized in
+Table 5 and Table S8, whereas calibration analysis demonstrated good
+agreement between predicted and observed survival (Figure 7D).
+
+***\[Insert Figure 7 and Table 5 here\]***
 
 Taken together, these findings indicate that the M12 signature captures
 clinically meaningful prognostic information and supports both
-group-based stratification and continuous risk assessment.
+group-based stratification and continuous risk assessment; additional
+diagnostic analyses further supported model robustness (Figure S5; Table
+S9).
 
 **4. Discussion**
 
@@ -395,7 +428,9 @@ prioritized CpG sites.
 In conclusion, our findings support a causal-to-translational paradigm
 for biomarker discovery, demonstrating how genetically informed
 epigenetic signals can be leveraged to bridge upstream risk factors and
-clinical outcomes in LUSC.
+clinical outcomes in LUSC, thereby providing a generalizable blueprint
+for translating causal inference into clinically actionable biomarkers
+in complex diseases.
 
 **5. Conclusion**
 

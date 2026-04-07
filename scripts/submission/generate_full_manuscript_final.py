@@ -67,6 +67,17 @@ def add_formula(text):
         r.font.size = Pt(11)
         r.italic = True
 
+def add_marker(text):
+    p = doc.add_paragraph()
+    p.paragraph_format.space_before = Pt(2)
+    p.paragraph_format.space_after = Pt(6)
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    r = p.add_run(f"[Insert {text} here]")
+    r.font.name = "Times New Roman"
+    r.font.size = Pt(10.5)
+    r.italic = True
+    r.bold = True
+
 def add_reference_entry(text):
     p = doc.add_paragraph(text)
     p.paragraph_format.line_spacing = 1.0
@@ -96,31 +107,33 @@ methods_22a = "Two-sample MR analyses were conducted to estimate the putative ca
 methods_22b = "The primary causal estimate was derived using the inverse-variance weighted (IVW) approach:"
 methods_22c = "where w_i denotes the inverse variance of the SNP-outcome association, defined as 1 / (SE_Y,i)²."
 methods_22d = "To evaluate the robustness of the IVW estimates and to assess potential horizontal pleiotropy, complementary sensitivity analyses were performed using MR-Egger regression, the weighted median estimator, and MR-PRESSO [27,43]. The MR-Egger model was specified as:"
-methods_23 = "Multivariable MR (MVMR) was performed to estimate the independent effects of correlated exposures within a joint modeling framework [47]. To further explore biologically plausible intermediate pathways, two-step MR analyses were undertaken by separately modeling exposure-mediator and mediator-outcome associations, with particular emphasis on the potential mediating role of inflammatory markers in metabolic risk transmission [16,50]. Indirect effects were interpreted according to the product-of-coefficients framework."
-methods_24 = "To prioritize CpG sites that potentially translate inherited liability into tumor-level molecular regulation, we implemented an epigenetic triangulation framework integrating mQTL mapping, MR directionality, and Bayesian colocalization analysis [15-17,29,45,46]. mQTL datasets were first used to identify genetically regulated CpG loci. Colocalization analysis was then applied to evaluate whether the exposure-associated and methylation-associated signals were likely attributable to a shared causal variant; posterior probability for hypothesis 4 (PP.H4) > 0.30 was considered suggestive evidence of colocalization. CpG sites were retained only when the inferred directions of effect were concordant across the MR and mQTL layers."
-methods_25 = "Prioritized CpG sites and their annotated genes were subsequently evaluated across transcriptomic, proteomic, and immune-related datasets to strengthen biological interpretation and translational relevance. Transcriptomic processing and differential analyses were aligned with established RNA-seq and microarray workflows [28,30,31,34], with missing data handled according to standard imputation principles where required [33]. Functional enrichment analyses were performed to identify pathways associated with the candidate genes, with particular emphasis on coagulation, platelet activation, extracellular matrix organization, and immune-related processes implicated in tumor microenvironment remodeling, using established pathway resources and analytic frameworks [35-38,42]."
+methods_22e = "Detailed MR sensitivity analyses and supporting results are provided in Tables S1–S2."
+methods_23 = "Multivariable MR (MVMR) was performed to estimate the independent effects of correlated exposures within a joint modeling framework [47]. To further explore biologically plausible intermediate pathways, two-step MR analyses were undertaken by separately modeling exposure-mediator and mediator-outcome associations, with particular emphasis on the potential mediating role of inflammatory markers in metabolic risk transmission [16,50]. Indirect effects were interpreted according to the product-of-coefficients framework. Extended MVMR and mediation analyses are shown in Tables S2–S3."
+methods_24 = "To prioritize CpG sites that potentially translate inherited liability into tumor-level molecular regulation, we implemented an epigenetic triangulation framework integrating mQTL mapping, MR directionality, and Bayesian colocalization analysis [15-17,29,45,46]. mQTL datasets were first used to identify genetically regulated CpG loci. Colocalization analysis was then applied to evaluate whether the exposure-associated and methylation-associated signals were likely attributable to a shared causal variant; posterior probability for hypothesis 4 (PP.H4) > 0.30 was considered suggestive evidence of colocalization. CpG sites were retained only when the inferred directions of effect were concordant across the MR and mQTL layers. Full colocalization results are provided in Table S4, with regional plots shown in Figure S3."
+methods_25 = "Prioritized CpG sites and their annotated genes were subsequently evaluated across transcriptomic, proteomic, and immune-related datasets to strengthen biological interpretation and translational relevance. Transcriptomic processing and differential analyses were aligned with established RNA-seq and microarray workflows [28,30,31,34], with missing data handled according to standard imputation principles where required [33]. Functional enrichment analyses were performed to identify pathways associated with the candidate genes, with particular emphasis on coagulation, platelet activation, extracellular matrix organization, and immune-related processes implicated in tumor microenvironment remodeling, using established pathway resources and analytic frameworks [35-38,42]. CpG-to-gene mapping details are summarized in Table S5."
 methods_26a = "DNA methylation profiles and corresponding clinical follow-up data were obtained from the TCGA-LUSC cohort for prognostic model development [2]. Feature selection was performed using a penalized Cox proportional hazards model with LASSO regularization and 10-fold cross-validation, following established machine-learning and regularization principles for biomedical prediction modeling [32,39]. Candidate signatures were subsequently compared using a composite selection score, and the final 12-CpG signature (M12_Top12) was selected on the basis of overall parsimony-performance balance. The Cox proportional hazards model was defined as:"
 methods_26b = "For each patient, the prognostic risk score was calculated from the multivariable Cox model using z-scored CpG features, where Z(CpG) represents the standardized methylation value of a given CpG site. The general form of the risk score was:"
 methods_26c = "The final M12 signature was specified as:"
-methods_27 = "Model performance was comprehensively evaluated using Kaplan-Meier survival analysis, nonparametric time-to-event estimation under censoring, the concordance index (C-index), time-dependent receiver operating characteristic (ROC) analysis, calibration curves, and decision curve analysis (DCA) [40]. In the TCGA-LUSC training cohort, patients were dichotomized into high- and low-risk groups according to the median training-cohort risk score. External validation was performed in two independent microarray cohorts (GSE39279 and GSE30219), in which optimal cutoffs were determined using the maxstat (maximally selected rank statistics) procedure. Given the heterogeneity in endpoint definition across validation cohorts, namely recurrence-free survival in GSE39279 and overall survival in GSE30219, external validation primarily focused on discriminative performance, whereas calibration and DCA were principally assessed in the TCGA training cohort."
+methods_26d = "Full model coefficients and feature-selection procedures are provided in Tables S6–S7."
+methods_27 = "Model performance was comprehensively evaluated using Kaplan-Meier survival analysis, nonparametric time-to-event estimation under censoring, the concordance index (C-index), time-dependent receiver operating characteristic (ROC) analysis, calibration curves, and decision curve analysis (DCA) [40]. In the TCGA-LUSC training cohort, patients were dichotomized into high- and low-risk groups according to the median training-cohort risk score. External validation was performed in two independent microarray cohorts (GSE39279 and GSE30219), in which optimal cutoffs were determined using the maxstat (maximally selected rank statistics) procedure. Given the heterogeneity in endpoint definition across validation cohorts, namely recurrence-free survival in GSE39279 and overall survival in GSE30219, external validation primarily focused on discriminative performance, whereas calibration and DCA were principally assessed in the TCGA training cohort. Additional diagnostic analyses are shown in Figure S5 and Tables S8–S9."
 methods_28 = "All statistical analyses were performed using R software (version 4.5.2). Unless otherwise specified, all statistical tests were two-sided, and P-values < 0.05 were considered statistically significant. Where appropriate, results were interpreted in conjunction with multiple-testing considerations and consistency across analytical layers."
 
-res_31a = "We first assessed the causal effects of metabolic, inflammatory, and lifestyle exposures on lung cancer outcomes using Mendelian randomization. Smoking initiation exhibited the strongest and most consistent associations across outcomes, with larger effect sizes observed in lung squamous cell carcinoma (LUSC) compared with lung adenocarcinoma (LUAD). Body mass index (BMI) showed significant associations with LUSC but not LUAD, suggesting subtype-specific susceptibility patterns (Figure 2)."
+res_31a = "We first assessed the causal effects of metabolic, inflammatory, and lifestyle exposures on lung cancer outcomes using Mendelian randomization. Smoking initiation exhibited the strongest and most consistent associations across outcomes, with larger effect sizes observed in lung squamous cell carcinoma (LUSC) compared with lung adenocarcinoma (LUAD). Body mass index (BMI) showed significant associations with LUSC but not LUAD, suggesting subtype-specific susceptibility patterns (Figure 2; Table 2)."
 res_31b = "Detailed effect estimates, including odds ratios and confidence intervals, are provided in Table 2."
-res_31c = "Multivariable MR analyses attenuated these associations, consistent with shared genetic architecture among cardiometabolic traits. Collectively, these findings support a networked metabolic–inflammatory liability framework rather than a single dominant causal factor."
+res_31c = "Multivariable MR analyses attenuated these associations, consistent with shared genetic architecture among cardiometabolic traits. Collectively, these findings support a networked metabolic–inflammatory liability framework rather than a single dominant causal factor (Figure S2; Tables S1–S2)."
 res_32a = "To explore potential mechanisms linking metabolic traits to LUSC, we performed two-step Mendelian randomization analyses. In particular, C-reactive protein (CRP) emerged as a potential mediator, with the BMI→CRP→LUSC pathway showing consistent exposure–mediator and mediator–outcome effects."
-res_32b = "Although these associations did not survive multiple testing correction, the recurrent involvement of CRP across multiple pathways suggests a biologically plausible inflammatory axis underlying LUSC risk. Full mediation results are presented in Supplementary Tables S2–S3."
+res_32b = "Although these associations did not survive multiple testing correction, the recurrent involvement of CRP across multiple pathways suggests a biologically plausible inflammatory axis underlying LUSC risk (Figure 2C; Tables S2–S3)."
 res_33a = "To bridge genetic liability to tumor-level regulation, we implemented an epigenetic triangulation framework integrating mQTL mapping, Mendelian randomization, and colocalization analysis (see Methods). This approach enabled the identification of CpG-specific regulatory signals."
 res_33b = "At the MFAP2 locus, one CpG site demonstrated concordant evidence across all layers, whereas adjacent probes did not, indicating probe-specific functional relevance. Colocalization analysis further supported a shared genetic signal at this locus."
-res_33c = "These findings prioritized MFAP2 as a key candidate linking upstream liabilities to epigenetic regulation (Figure 3; Table 3)."
-res_34a = "To further characterize the biological relevance of prioritized loci, we performed multi-omics integration across transcriptomic, proteomic, and immune-related datasets. These analyses converged on a coherent tumor program characterized by platelet activation, coagulation processes, and extracellular matrix remodeling (Figures 4–5)."
+res_33c = "These findings prioritized MFAP2 as an upstream candidate node linking inherited liabilities to epigenetic regulation and downstream tumor biology (Figure 3; Table 3; Figure S3; Table S4)."
+res_34a = "To further characterize the biological relevance of prioritized loci, we performed multi-omics integration across transcriptomic, proteomic, and immune-related datasets. These analyses converged on a coherent tumor program characterized by platelet activation, coagulation processes, and extracellular matrix remodeling, with Figure 6 further illustrating CpG–pathway associations and immune-related signatures (Figures 4 and 6)."
 res_34b = "Notably, transcriptomic and proteomic analyses showed partial discordance at the gene expression level but consistent activation at the pathway level, suggesting post-transcriptional regulation. Functional enrichment further supported a platelet–ECM axis and microtubule-related transport processes."
-res_34c = "Together, these results provide a mechanistic bridge linking systemic metabolic–inflammatory liabilities to tumor microenvironment remodeling."
-res_35a = "We translated the prioritized epigenetic signals into a methylation-based prognostic model using penalized LASSO-Cox regression. The final model comprised 12 CpG sites (M12) and demonstrated stable prognostic performance in the TCGA-LUSC training cohort."
-res_35b = "Using the median training-cohort cutoff, Kaplan–Meier analysis showed significantly worse overall survival in the high-risk group (Figure 6). Continuous risk modeling further supported the prognostic relevance of the M12 signature. Model coefficients and feature contributions are summarized in Table 4."
-res_36a = "We next evaluated model performance in two independent cohorts, GSE39279 and GSE30219. Significant survival stratification was observed across external datasets using maxstat-derived optimal cutoffs, supporting the portability of the M12 signature across independent populations."
-res_36b = "In the TCGA training cohort, the model achieved a C-index of 0.664 and a 3-year AUC of 0.685, with good calibration performance (slope = 1.227; R² = 0.843). Overall validation results are presented in Figure 7 and Table 5."
-res_36c = "Taken together, these findings indicate that the M12 signature captures clinically meaningful prognostic information and supports both group-based stratification and continuous risk assessment."
+res_34c = "Together, these results provide a mechanistic bridge linking systemic metabolic–inflammatory liabilities to tumor microenvironment remodeling (Table S5)."
+res_35a = "We translated the prioritized epigenetic signals into a methylation-based prognostic model using penalized LASSO-Cox regression. The final model comprised 12 CpG sites (M12) and demonstrated stable prognostic performance in the TCGA-LUSC training cohort (Figure 5A–C; Table 4; Tables S6–S7)."
+res_35b = "Using the median training-cohort cutoff, Kaplan–Meier analysis showed significantly worse overall survival in the high-risk group (Figure 5D). Continuous risk modeling further supported the prognostic relevance of the M12 signature. Model coefficients and feature contributions are summarized in Table 4."
+res_36a = "We next evaluated model performance in two independent cohorts, GSE39279 and GSE30219. Significant survival stratification was observed across external datasets using maxstat-derived optimal cutoffs, supporting the portability of the M12 signature across independent populations (Figure 7B–C)."
+res_36b = "In the TCGA training cohort, the model achieved a C-index of 0.664 and a 3-year AUC of 0.685, with good calibration performance (slope = 1.227; R² = 0.843). Detailed cohort-level performance metrics are summarized in Table 5 and Table S8, whereas calibration analysis demonstrated good agreement between predicted and observed survival (Figure 7D)."
+res_36c = "Taken together, these findings indicate that the M12 signature captures clinically meaningful prognostic information and supports both group-based stratification and continuous risk assessment; additional diagnostic analyses further supported model robustness (Figure S5; Table S9)."
 
 disc_1 = "In this study, we developed a causal-to-translational multi-omics framework that links genetic liability to clinically relevant epigenetic markers in lung squamous cell carcinoma (LUSC). By integrating Mendelian randomization, mQTL mapping, and colocalization analyses, our approach prioritizes CpG sites that are both genetically anchored and functionally supported, thereby moving beyond conventional association-based biomarker discovery. These signals were subsequently translated into a 12-CpG methylation signature (M12), which demonstrated consistent prognostic stratification in both training and independent validation cohorts, with acceptable discrimination and good calibration. Together, these findings support a unified framework in which upstream metabolic–inflammatory liabilities are connected to tumor microenvironment remodeling and ultimately to clinically actionable risk prediction."
 disc_2 = "A key insight from this work is that metabolic–inflammatory risk in LUSC is best conceptualized as a networked liability rather than a single-factor effect [5-8,48,49]. The recurrent involvement of CRP across multiple pathways suggests a central inflammatory axis linking systemic metabolic perturbations to tumor risk, consistent with prior evidence implicating inflammatory mediators in lung carcinogenesis [7,8]. Although these findings should be interpreted as hypothesis-generating rather than definitive mediation, they provide a coherent biological framework for understanding subtype-specific susceptibility."
@@ -129,7 +142,7 @@ disc_4 = "Multi-omics integration further demonstrated that these genetically an
 disc_5 = "From a clinical perspective, the M12 methylation signature illustrates that biologically informed multi-feature models can capture meaningful prognostic information. Although its discriminative performance was moderate, calibration was good in the training cohort and significant survival stratification was preserved across independent datasets. The stronger performance of continuous risk assessment further suggests that the signature may be most informative when interpreted as a quantitative prognostic measure, consistent with broader efforts to translate DNA methylation biomarkers into clinically usable tools [13,14,52]."
 disc_6 = "Importantly, beyond the specific findings, this study provides a generalizable framework for biomarker discovery that integrates causal inference with multi-omics validation. This design enables a systematic transition from genetic association to functional prioritization and clinical translation, which may be applicable to other complex diseases."
 disc_7 = "Several limitations should be acknowledged. First, MR is designed for etiological inference rather than prognostic modeling, and the transition from genetic liability to recurrence outcomes should be interpreted with caution [50]. Second, colocalization analyses may be affected by locus complexity and the presence of multiple causal variants [45]. Third, external validation was conducted in relatively modest cohorts, which may limit generalizability. Future studies should focus on prospective validation and experimental characterization of prioritized CpG sites."
-disc_8 = "In conclusion, our findings support a causal-to-translational paradigm for biomarker discovery, demonstrating how genetically informed epigenetic signals can be leveraged to bridge upstream risk factors and clinical outcomes in LUSC."
+disc_8 = "In conclusion, our findings support a causal-to-translational paradigm for biomarker discovery, demonstrating how genetically informed epigenetic signals can be leveraged to bridge upstream risk factors and clinical outcomes in LUSC, thereby providing a generalizable blueprint for translating causal inference into clinically actionable biomarkers in complex diseases."
 
 concl_1 = "This study establishes a causal-to-translational paradigm linking genetic liability to tumor biology and clinical outcomes in lung squamous cell carcinoma. Through integrative analyses, we identify MFAP2-linked epigenetic regulation as a key node connecting systemic metabolic–inflammatory risk to tumor progression. The derived M12 CpG-based signature demonstrates that biologically informed models can capture clinically relevant prognostic signals, particularly when interpreted as continuous measures. Beyond the specific findings, this work provides a generalizable framework for translating causal inference into mechanistically grounded biomarkers for precision oncology."
 ack_1 = "We acknowledge the investigators and participants of the International Lung Cancer Consortium (ILCCO), The Cancer Genome Atlas (TCGA), and the Clinical Proteomic Tumor Analysis Consortium (CPTAC) for making their datasets publicly available. We also acknowledge the developers of the analytical tools used in this study, including R packages such as TwoSampleMR and coloc, as well as Python-based computational libraries used for data processing, predictive modeling, and visualization."
@@ -217,6 +230,7 @@ add_paragraph(intro_p4)
 add_heading("2. Methods", size=13)
 add_heading("2.1 Study design and analytical framework")
 add_paragraph(methods_21)
+add_marker("Figure 1")
 add_heading("2.2 Genetic liability analysis using Mendelian randomization")
 add_paragraph(methods_22a)
 add_paragraph(methods_22b)
@@ -224,6 +238,7 @@ add_formula("β̂_IVW = ∑ [ w_i · (β_Y,i / β_X,i) ] / ∑ w_i")
 add_paragraph(methods_22c)
 add_paragraph(methods_22d)
 add_formula("β_Y,i = α + β_MR · β_X,i + ε_i")
+add_paragraph(methods_22e)
 add_heading("2.3 Multivariable and mediation MR")
 add_paragraph(methods_23)
 add_heading("2.4 Epigenetic triangulation framework")
@@ -237,6 +252,7 @@ add_paragraph(methods_26b)
 add_formula("Risk Score = ∑ (β_j × Z(CpG_j))")
 add_paragraph(methods_26c)
 add_formula("Risk Score = (0.210 × Z[cg06238570]) + (0.140 × Z[cg07318658]) + (0.104 × Z[cg13144823]) - (0.222 × Z[cg14526939]) - (0.294 × Z[cg07151966]) + (0.041 × Z[cg12672785]) + (0.075 × Z[cg05801080]) - (0.205 × Z[cg07154958]) + (0.253 × Z[cg16098170]) + (0.260 × Z[cg09010499]) - (0.230 × Z[cg05984948]) - (0.152 × Z[cg00646216])")
+add_paragraph(methods_26d)
 add_heading("2.7 Model evaluation and validation")
 add_paragraph(methods_27)
 add_heading("2.8 Statistical analysis")
@@ -247,6 +263,7 @@ add_heading("3.1 Genetic liability reveals subtype-specific risk architecture")
 add_paragraph(res_31a)
 add_paragraph(res_31b)
 add_paragraph(res_31c)
+add_marker("Figure 2 and Table 2")
 add_heading("3.2 Inflammatory pathways may mediate metabolic risk in LUSC")
 add_paragraph(res_32a)
 add_paragraph(res_32b)
@@ -254,16 +271,21 @@ add_heading("3.3 Epigenetic triangulation prioritizes MFAP2-associated CpG sites
 add_paragraph(res_33a)
 add_paragraph(res_33b)
 add_paragraph(res_33c)
+add_marker("Figure 3 and Table 3")
 add_heading("3.4 Multi-omics integration reveals a coagulation–ECM tumor program")
 add_paragraph(res_34a)
 add_paragraph(res_34b)
 add_paragraph(res_34c)
+add_marker("Figures 4 and 6")
 add_heading("3.5 A 12-CpG methylation signature enables clinically relevant risk stratification")
 add_paragraph(res_35a)
+add_marker("Figure 5A–C and Table 4")
 add_paragraph(res_35b)
+add_marker("Figure 5D")
 add_heading("3.6 External validation confirms model portability across independent cohorts")
 add_paragraph(res_36a)
 add_paragraph(res_36b)
+add_marker("Figure 7 and Table 5")
 add_paragraph(res_36c)
 
 add_heading("4. Discussion", size=13)

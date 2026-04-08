@@ -83,14 +83,14 @@ def style_paragraph(p, size=10.5, bold=False, align=None, before=0, after=3):
     if align is not None:
         p.alignment = align
     for r in p.runs:
-        r.font.name = "Arial"
+        r.font.name = "Times New Roman"
         r.font.size = Pt(size)
         r.bold = bold
 
 
 def style_doc(doc):
     normal = doc.styles["Normal"]
-    normal.font.name = "Arial"
+    normal.font.name = "Times New Roman"
     normal.font.size = Pt(10.5)
     for p in doc.paragraphs:
         txt = p.text.strip()
@@ -251,14 +251,14 @@ def refine_main_doc_content(path):
         cut_idx = next((i for i, h in enumerate(hdr) if "Cutoff method" in h), None)
         ds_idx = next((i for i, h in enumerate(hdr) if h == "Dataset"), 0)
         if hr_idx is not None:
-            t5.cell(0, hr_idx).text = "HR (high vs low risk group, 95% CI; Cox model)"
+            t5.cell(0, hr_idx).text = "HR (high vs low risk, Cox model, 95% CI)"
         if cut_idx is not None:
             for i in range(1, len(t5.rows)):
                 ds = t5.cell(i, ds_idx).text.strip().lower()
                 if "tcga" in ds:
-                    t5.cell(i, cut_idx).text = "Median (training cohort)"
+                    t5.cell(i, cut_idx).text = "Median cutoff derived from the training cohort"
                 else:
-                    t5.cell(i, cut_idx).text = "Maxstat-derived optimal cutoff"
+                    t5.cell(i, cut_idx).text = "Maxstat-derived optimal cutoff (external cohorts)"
     doc.save(path)
 
 

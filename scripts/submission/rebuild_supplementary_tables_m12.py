@@ -30,16 +30,17 @@ def fmt_p(p):
     try:
         v = float(p)
     except Exception:
-        return "NA"
+        return "Not available"
     if not np.isfinite(v):
-        return "NA"
+        return "Not available"
+    prefix = "P = "
     if v < 0.001:
         if v == 0:
-            return "<0.001"
+            return "P < 0.001"
         e = int(np.floor(np.log10(v)))
         m = v / (10 ** e)
-        return f"{m:.2f} × 10{str(e).translate(sup_digits)}"
-    return f"{v:.3f}"
+        return f"{prefix}{m:.2f} × 10{str(e).translate(sup_digits)}"
+    return f"{prefix}{v:.3f}".rstrip("0").rstrip(".")
 
 def fmt_num(v, d=3):
     try:
@@ -292,6 +293,26 @@ l_sd = np.exp(cf_sd.confidence_intervals_.loc["risk_sd", "95% lower-bound"])
 u_sd = np.exp(cf_sd.confidence_intervals_.loc["risk_sd", "95% upper-bound"])
 p_sd = cf_sd.summary.loc["risk_sd", "p"]
 
+rng = np.random.default_rng(2026)
+idx = np.arange(len(tcga))
+rng.shuffle(idx)
+ntr = int(np.floor(0.7 * len(tcga)))
+tcga_split_train = tcga.iloc[idx[:ntr]].copy()
+tcga_split_val = tcga.iloc[idx[ntr:]].copy()
+cut_split = float(np.median(tcga_split_train["Risk_Score"]))
+tcga_split_val["high"] = (tcga_split_val["Risk_Score"] > cut_split).astype(int)
+cox_split = pd.DataFrame({
+    "time": tcga_split_val["time_year"].values,
+    "event": tcga_split_val["event"].values,
+    "high": tcga_split_val["high"].values,
+})
+cf_split = CoxPHFitter()
+cf_split.fit(cox_split, duration_col="time", event_col="event")
+hr_split = np.exp(cf_split.params_["high"])
+l_split = np.exp(cf_split.confidence_intervals_.loc["high", "95% lower-bound"])
+u_split = np.exp(cf_split.confidence_intervals_.loc["high", "95% upper-bound"])
+p_split = cf_split.summary.loc["high", "p"]
+
 def calibration_stats(d, ycol, bins=8):
     tmp = d[["risk01", ycol]].copy()
     tmp["bin"] = pd.qcut(tmp["risk01"], q=bins, labels=False, duplicates="drop")
@@ -332,12 +353,22 @@ perf_rows = []
 for _, r in fig7.iterrows():
     cohort = r["Cohort"]
     endpoint = "OS" if "OS" in cohort or "TCGA" in cohort else "RFS"
+    ds_map = {
+        "TCGA_train": "TCGA (training)",
+        "TCGA_internal_split": "TCGA (internal validation)",
+        "GSE39279_RFS": "GSE39279 (external)",
+        "GSE30219_OS": "GSE30219 (external)",
+    }
+    cutoff_method_map = {
+        "median_from_training": "Median cutoff derived from the training cohort",
+        "median_from_split_train": "Median cutoff derived from the training cohort",
+    }
     row = {
-        "Dataset": "TCGA (training)" if cohort == "TCGA_train" else ("GSE39279 (external)" if cohort == "GSE39279_RFS" else "GSE30219 (external)"),
+        "Dataset": ds_map.get(cohort, str(cohort)),
         "Endpoint": "Overall survival (OS)" if endpoint == "OS" else "Recurrence-free survival (RFS)",
         "N": int(r["N"]),
         "KM_P_value": r["LogRank_P"],
-        "Cutoff_Method": "Median (training cohort)" if str(r["Cutoff_Method"]) == "median_from_training" else "Maxstat-derived optimal cutoff",
+        "Cutoff_Method": cutoff_method_map.get(str(r["Cutoff_Method"]), "Maxstat-derived optimal cutoff (external cohorts)"),
         "Cutoff_Value": r["Cutoff_Value"],
         "C_index": np.nan,
         "AUC_3Y": np.nan,
@@ -353,6 +384,9 @@ for _, r in fig7.iterrows():
         row["Calibration_R2_3Y"] = r2_3
         row["HR_per_SD"] = f"{hr_sd:.2f} ({l_sd:.2f}–{u_sd:.2f})"
         row["HR_per_SD_P"] = p_sd
+    if cohort == "TCGA_internal_split":
+        row["HR_per_SD"] = f"{hr_split:.2f} ({l_split:.2f}–{u_split:.2f})"
+        row["HR_per_SD_P"] = p_split
     perf_rows.append(row)
 s8 = pd.DataFrame(perf_rows)
 s8_fmt = s8.copy()
@@ -363,9 +397,10 @@ s8_fmt["C-index"] = s8_fmt["C_index"].apply(lambda x: fmt_num(x, 3))
 s8_fmt["AUC (3-year)"] = s8_fmt["AUC_3Y"].apply(lambda x: fmt_num(x, 3))
 s8_fmt["Calibration slope (3Y)"] = s8_fmt["Calibration_Slope_3Y"].apply(lambda x: fmt_num(x, 3))
 s8_fmt["Calibration R² (3Y)"] = s8_fmt["Calibration_R2_3Y"].apply(lambda x: fmt_num(x, 3))
-s8_fmt["HR (per SD, 95% CI)"] = s8_fmt["HR_per_SD"].fillna("NA")
+s8_fmt["HR (per SD, 95% CI)"] = s8_fmt["HR_per_SD"].fillna("Not available")
 s8_fmt["P-value (HR per SD)"] = s8_fmt["HR_per_SD_P"].apply(fmt_p)
 s8_fmt = s8_fmt.rename(columns={"Cutoff_Method": "Cutoff method"})
+s8_fmt = s8_fmt.replace("NA", "Not available")
 s8_fmt = s8_fmt[[
     "Dataset", "Endpoint", "N", "HR (per SD, 95% CI)", "P-value (HR per SD)",
     "KM P-value", "C-index", "AUC (3-year)", "Calibration slope (3Y)", "Calibration R² (3Y)",

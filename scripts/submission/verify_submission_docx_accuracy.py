@@ -50,15 +50,16 @@ if len(main_df4) == 12:
 else:
     checks.append(("main_table4_cpg_set_match", False))
 
-checks.append(("main_table5_rows_3", len(main_df5) == 3))
-if len(main_df5) == 3 and "Dataset" in main_df5.columns:
+checks.append(("main_table5_rows_4", len(main_df5) == 4))
+if len(main_df5) == 4 and "Dataset" in main_df5.columns:
     sup_map = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-")
     def parse_p_text(s):
         t = str(s).strip().replace(",", "")
+        t = t.replace("P =", "").replace("p =", "").replace("P<", "<").replace("p<", "<").strip()
         if "×" in t and "10" in t:
             parts = t.split("×")
             try:
-                m = float(parts[0].strip())
+                m = float(re.sub(r"[^0-9.\-]", "", parts[0]))
                 e_part = parts[1].strip()
                 if "10" in e_part:
                     e = e_part.split("10", 1)[1].translate(sup_map)
@@ -70,6 +71,8 @@ if len(main_df5) == 3 and "Dataset" in main_df5.columns:
         return float(m.group(0)) if m else None
     def norm_ds(x):
         s = str(x).lower()
+        if "internal" in s and "tcga" in s:
+            return "TCGA_internal_split"
         if "tcga" in s:
             return "TCGA_train"
         if "39279" in s:

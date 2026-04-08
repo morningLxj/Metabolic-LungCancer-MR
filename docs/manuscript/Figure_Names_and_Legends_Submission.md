@@ -24,7 +24,7 @@ Panel A shows LASSO coefficient profiles across log(λ), illustrating variable s
 **Figure 6. Biological mechanisms linking risk score to tumor microenvironment remodeling.**  
 Panel A (Immune features associated with risk score) displays selected representative immune populations (one algorithm per feature) ranked by effect direction and magnitude. Panel B (Functional pathway activation associated with risk score) summarizes pathways grouped into platelet-related, ECM/cytoskeleton, and inflammation modules, reflecting functional activation at the tumor level. This pathway-activity view is distinct from gene-level enrichment (Figure 3). Significance marks indicate pathway-level association strength (* P < 0.05, ** P < 0.01, *** P < 0.001). Together, the two panels support a coherent mechanism axis: immune alteration → platelet/ECM/inflammation programs → risk-associated tumor microenvironment remodeling.
 
-**Figure 7. Continuous-risk clinical translation from effect size to event distribution.**  
+**Figure 7. Robust prognostic validation of the M12 model across internal and external cohorts.**  
 Panel A shows continuous Cox effect size (hazard ratio per SD increase in risk score). Panel B shows the dose-response relationship from restricted cubic spline (RCS), with low/intermediate/high-risk background zones and non-linearity statistics. Panel C shows the continuous risk-score distribution with median cutoff for orientation (not dichotomization inference). Panel D maps event distribution across the same risk ordering, linking risk continuum to survival outcomes. Together, these panels emphasize that risk operates continuously rather than as a purely dichotomous construct.
 
 ---
@@ -43,7 +43,7 @@ Three panels display locus-level GWAS/eQTL overlap for MFAP2, MMEL1, and CDK11A,
 **Supplementary Figure S4. Full forest plot of MR estimates across exposure categories.**  
 Two grouped sections summarize inflammatory and metabolic/lifestyle exposures with OR (95% CI), using significance-aware color coding (FDR-significant, nominal-significant, and non-significant). The figure provides complete transparency for effect direction, confidence bounds, and category-level patterning.
 
-**Supplementary Figure S5. External Kaplan-Meier validation in independent cohorts.**  
+**Supplementary Figure S5. Diagnostic performance of the M12 model in the TCGA training cohort.**  
 Panel A shows recurrence-free survival (RFS) stratification in GSE39279 under predefined risk grouping. Panel B shows overall-survival (OS) stratification in GSE30219. Together, these panels demonstrate external transportability of risk-group separation across cohorts with different endpoint definitions.
 
 **Supplementary Figure S6. Extended model diagnostics beyond main-figure ROC and KM.**  

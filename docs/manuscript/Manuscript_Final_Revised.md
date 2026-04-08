@@ -217,8 +217,10 @@ censoring, the concordance index (C-index), time-dependent receiver
 operating characteristic (ROC) analysis, calibration curves, and
 decision curve analysis (DCA) \[40\]. In the TCGA-LUSC training cohort,
 patients were dichotomized into high- and low-risk groups according to
-the median training-cohort risk score. External validation was performed
-in two independent microarray cohorts (GSE39279 and GSE30219), in which
+the median training-cohort risk score. The TCGA cohort was randomly
+split into training and internal validation sets using stratified
+sampling based on survival status. External validation was performed in
+two independent microarray cohorts (GSE39279 and GSE30219), in which
 optimal cutoffs were determined using the maxstat (maximally selected
 rank statistics) procedure. Given the heterogeneity in endpoint
 definition across validation cohorts, namely recurrence-free survival in
@@ -335,17 +337,19 @@ summarized in Table 4.
 **3.6 External validation confirms model portability across independent
 cohorts**
 
-We next evaluated model performance in two independent cohorts, GSE39279
-and GSE30219. Significant survival stratification was observed across
-external datasets using maxstat-derived optimal cutoffs, supporting the
-portability of the M12 signature across independent populations (Figure
-7B--C).
+We next evaluated model performance across the TCGA internal validation
+cohort and two independent external cohorts (GSE39279 and GSE30219).
+Consistent survival stratification was observed in the internal
+validation subset and across external datasets using maxstat-derived
+optimal cutoffs, supporting the portability of the M12 model (Figure
+7B--D).
 
 In the TCGA training cohort, the model achieved a C-index of 0.664 and a
 3-year AUC of 0.685, with good calibration performance (slope = 1.227;
 R² = 0.843). Detailed cohort-level performance metrics are summarized in
 Table 5 and Table S8, whereas calibration analysis demonstrated good
-agreement between predicted and observed survival (Figure 7D).
+agreement between predicted and observed survival in the training cohort
+(Figure S5A).
 
 ***\[Insert Figure 7 and Table 5 here\]***
 
@@ -449,20 +453,20 @@ into mechanistically grounded biomarkers for precision oncology.
 
 We acknowledge the investigators and participants of the International
 Lung Cancer Consortium (ILCCO), The Cancer Genome Atlas (TCGA), and the
-Clinical Proteomic Tumor Analysis Consortium (CPTAC) for making their
-datasets publicly available. We also acknowledge the developers of the
-analytical tools used in this study, including R packages such as
-TwoSampleMR and coloc, as well as Python-based computational libraries
-used for data processing, predictive modeling, and visualization.
+Clinical Proteomic Tumor Analysis Consortium (CPTAC) for generating and
+making these data publicly available. We also thank the developers of
+the analytical tools and open-source resources that made this study
+possible.
 
 **Author contributions**
 
 Xiongjie Li (XL): Conceived the study, designed the methodological
-framework, performed data collection, conducted Mendelian randomization
-analyses and prognostic modeling, and drafted the original manuscript.
+framework, performed data acquisition and curation, conducted Mendelian
+randomization analyses and prognostic modeling, and drafted the original
+manuscript.
 
-Fengyue Zhang (FZ): Participated in data collection, Mendelian
-randomization analyses, and prognostic modeling.
+Fengyue Zhang (FZ): Participated in data acquisition and curation,
+Mendelian randomization analyses, and prognostic modeling.
 
 Xuan Xu (XX): Participated in multi-omics data integration and data
 visualization.
@@ -480,8 +484,8 @@ All authors read and approved the final manuscript.
 
 **Funding**
 
-The authors declare that no specific funding, grants, or other financial
-support were received for the preparation of this manuscript.
+This research did not receive any specific grant from funding agencies
+in the public, commercial, or not-for-profit sectors.
 
 **Declarations**
 
@@ -493,9 +497,10 @@ The authors declare no competing interests.
 
 Ethical review and approval were waived for this study because all
 analyses were based on publicly available, de-identified summary
-statistics and public molecular datasets, including GWAS summary data,
-TCGA data, and CPTAC data. All original studies cited in this work
-obtained the relevant ethical approvals and informed consent.
+statistics and open-access molecular datasets (e.g., GWAS, TCGA, CPTAC).
+All original studies obtained appropriate institutional ethical
+approvals and informed consent from participants, in accordance with the
+Declaration of Helsinki.
 
 **Availability of data and materials**
 
@@ -507,6 +512,8 @@ accessed through The Cancer Genome Atlas data portal
 Clinical Proteomic Tumor Analysis Consortium data portal. Code for
 Mendelian randomization analyses, prognostic modeling, and visualization
 is available at: https://github.com/morningLxj/Metabolic-LungCancer-MR.
+All data sources used in this study are publicly accessible, and
+detailed accession information is provided in the Methods section.
 
 **References**
 

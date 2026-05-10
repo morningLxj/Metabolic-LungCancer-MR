@@ -7,7 +7,7 @@ This document is generated from the current finalized figure outputs in `E:/GWAS
 ## Main Figures
 
 **Figure 1. Study design and analytical workflow integrating genetic, epigenetic, transcriptomic, and clinical validation layers.**  
-Schematic overview of the full study pipeline from GWAS instrument selection and Mendelian randomization to multi-omics prioritization and prognostic model development. The workflow defines data sources, statistical modules, candidate-gene prioritization strategy, and validation stages used for downstream translational interpretation.
+Schematic overview of the full study pipeline from GWAS instrument selection and Mendelian randomization to multi-omics prioritization and prognostic model development. A dedicated instrument-validation and quality-control layer is positioned between the primary MR step and Bayesian colocalization, highlighting LD pruning, F-statistic filtering, PhenoScanner screening, and sensitivity analyses used to support instrument robustness before downstream prioritization.
 
 **Figure 2. Causal inference and mediation architecture for lung cancer risk.**  
 Panel A shows a forest plot of key univariable MR associations (odds ratios with 95% confidence intervals) for representative exposures and lung cancer outcomes. Panel B compares effect estimates before and after multivariable adjustment, highlighting direction and magnitude shifts under confounder control. Panel C presents a mediation path diagram centered on CRP, quantifying exposure-to-mediator and mediator-to-outcome effects and mediation proportion for core risk pathways.

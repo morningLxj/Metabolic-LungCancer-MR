@@ -45,9 +45,9 @@
 
 | **Gene** | **Genetic (MR)** | **Epigenetic (mQTL)** | **Coloc (PP.H4)** | **Transcript** | **Protein** | **Immune** | **Clinical** | **Biological role** | **Evidence level** | **Key driver** |
 |:--|:--:|:--:|--:|:--:|:--:|:--:|:--:|:--|:--:|:--:|
-| MFAP2 | ✔ | ✔ | 0.305 | Decrease | Increase | ✔ | ✔ | ECM remodeling and immune interaction | ★★★★★ | Yes |
-| CDK11A | ✔ | ✔ | 0.612 | Not significant | Increase | ✔ | ✔ | Cell-cycle regulation | ★★★☆☆ | No |
-| WRAP73 | ✔ | ✔ | 0.489 | Decrease | Decrease | ✔ | ✖ | DNA repair | ★★★☆☆ | No |
+| MFAP2 | ✔ | ✔ | 0.575 | Decrease | Increase | ✔ | ✔ | ECM remodeling and immune interaction | ★★★★★ | Yes |
+| CDK11A | ✔ | ✔ | 0.207 | Not significant | Increase | ✔ | ✔ | Cell-cycle regulation | ★★★☆☆ | No |
+| WRAP73 | ✔ | ✔ | 0.466 | Decrease | Decrease | ✔ | ✖ | DNA repair | ★★★☆☆ | No |
 
 *Mechanism order: Genetic → Epigenetic → Transcript → Protein → Immune → Clinical. Evidence definition: ★★★★★ = ≥5 concordant layers; ★★★☆☆ = 3–4 concordant layers. All evidence layers were weighted equally without hierarchical prioritization.*
 
